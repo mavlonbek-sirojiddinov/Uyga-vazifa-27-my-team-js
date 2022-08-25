@@ -1,0 +1,158 @@
+@mixin reset-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-jb {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-colum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin link-color {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+@mixin btn-in {
+  position: relative;
+  display: inline-block;
+  padding: 13px 30px;
+  border: 2px solid #4dff00;
+  text-transform: uppercase;
+  font-weight: 600px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  color: #fff;
+  transition: 0s;
+  border-radius: 24px;
+}
+
+@mixin btn-none {
+  display: none;
+}
+
+@mixin btn-in-hover {
+  transition-delay: 1.5s;
+  border-radius: 24px;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 10px #4dff00,
+  0 0 20px #4dff00,
+  0 0 40px #4dff00,
+  0 0 80px #4dff00,
+  0 0 160px #4dff00;
+}
+
+@mixin btn-in-span {
+  position: relative;
+  z-index: 100;
+}
+
+@mixin btn-in-span-beafor {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 24px;
+  width: 20px;
+  height: 2px;
+  background-color: #4dff00;
+  box-shadow: 5px -8px 0 #4dff00,
+  5px 8px 0 #4dff00;
+  transition: width 0.5s, left 0.5s, height 0.5s, 
+  box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+@mixin span-hover-before {
+  width: 60%;
+  height: 104%;
+  left: -2px;
+  box-shadow: 5px 0 0 #4dff00,
+  5px 0 0 #4dff00;
+  transition-delay: 0s,0.5s,1s,1s;
+}
+
+@mixin span-after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 24px;
+  width: 20px;
+  height: 2px;
+  background-color: #4dff00;
+  box-shadow: -5px -8px 0 #4dff00,
+  -5px 8px 0 #4dff00;
+  transition: width 0.5s, right 0.5s, height 0.5s, 
+  box-shadow 0.5s;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+@mixin span-hover-after {
+  width: 60%;
+  height: 104%;
+  right: -2px;
+  box-shadow: -5px 0 0 #4dff00,
+  -5px 0 0 #4dff00;
+  transition-delay: 0s,0.5s,1s,1s;
+}
+
+@mixin s-nl {
+  position: relative;
+  color: #fff;  
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  transition: all 0.3s linear;
+}
+// Psevdoelementdagi uchburchak
+
+@mixin triangle ($direction, $size: 15px, $color: black) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  content: "";
+
+  @if $direction == "up" {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $direction == "down" {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if $direction == "left" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if $direction == "right" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+
+// Media so'rovlar uchun mixin
+@mixin mediaDevices ($screen-width) {
+  @media only screen and (max-width: $screen-width) {
+    @content;
+  }
+}
